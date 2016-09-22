@@ -186,9 +186,7 @@ class PgsqlSchemaParser extends AbstractSchemaParser
             }
             $oid = $row['oid'];
             $table = new Table($name);
-            if ('public' !== $namespaceName) {
-                $table->setSchema($namespaceName);
-            }
+            $table->setSchema($namespaceName);
             $table->setIdMethod($database->getDefaultIdMethod());
             $table->setDatabase($database);
             if (!$database->hasTable($table->getName())) {
